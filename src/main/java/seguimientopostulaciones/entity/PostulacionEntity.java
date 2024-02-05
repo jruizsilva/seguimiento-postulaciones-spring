@@ -23,8 +23,15 @@ public class PostulacionEntity {
 
     private String puesto;
     private String empresa;
+    private String plataforma;
     private String enlace;
+    @Temporal(TemporalType.TIMESTAMP)
     private Date fecha;
     @Enumerated(EnumType.STRING)
     private Estado estado;
+
+    @PrePersist
+    protected void onCreate() {
+        fecha = new Date();
+    }
 }

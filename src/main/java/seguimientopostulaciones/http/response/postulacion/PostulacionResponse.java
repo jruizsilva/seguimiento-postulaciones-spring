@@ -15,5 +15,6 @@ public class PostulacionResponse {
     private String fecha;
     private String empresa;
     private String enlace;
+    private String plataforma;
     private Estado estado;
 }

@@ -17,4 +17,5 @@ public class UpdatePostulacionRequest {
     private String empresa;
     private String enlace;
     private Estado estado;
+    private String plataforma;
 }

@@ -10,9 +10,11 @@ import seguimientopostulaciones.http.request.postulacion.UpdatePostulacionReques
 import seguimientopostulaciones.http.response.postulacion.PostulacionResponse;
 import seguimientopostulaciones.service.PostulacionService;
 
+import java.util.List;
+
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/products")
+@RequestMapping("/postulaciones")
 public class PostulacionController {
     private final PostulacionService postulacionService;
 
@@ -32,6 +34,11 @@ public class PostulacionController {
     @GetMapping("/{postulacionId}")
     public ResponseEntity<PostulacionResponse> findProductById(@PathVariable Long postulacionId) {
         return ResponseEntity.ok(postulacionService.findPostulacionById(postulacionId));
+    }
+
+    @GetMapping
+    public ResponseEntity<List<PostulacionResponse>> findAllPostulaciones() {
+        return ResponseEntity.ok(postulacionService.findAllPostulaciones());
     }
 
     @DeleteMapping("/{postulacionId}")

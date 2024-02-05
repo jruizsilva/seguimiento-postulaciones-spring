@@ -16,6 +16,8 @@ public class PostulacionMapperImpl implements PostulacionMapper {
                                 .puesto(createPostulacionRequest.getPuesto())
                                 .empresa(createPostulacionRequest.getEmpresa())
                                 .enlace(createPostulacionRequest.getEnlace())
+                                .plataforma(createPostulacionRequest.getPlataforma())
+                                .estado(Estado.EN_PROCESO)
                                 .build();
     }
 
@@ -26,6 +28,7 @@ public class PostulacionMapperImpl implements PostulacionMapper {
         String empresa = updatePostulacionRequest.getEmpresa();
         String enlace = updatePostulacionRequest.getEnlace();
         Estado estado = updatePostulacionRequest.getEstado();
+        String plataforma = updatePostulacionRequest.getPlataforma();
 
         if (puesto != null) {
             postulacionEntity.setPuesto(puesto);
@@ -39,6 +42,9 @@ public class PostulacionMapperImpl implements PostulacionMapper {
         if (estado != null) {
             postulacionEntity.setEstado(estado);
         }
+        if (plataforma != null) {
+            postulacionEntity.setPlataforma(plataforma);
+        }
         return postulacionEntity;
     }
 
@@ -48,6 +54,7 @@ public class PostulacionMapperImpl implements PostulacionMapper {
                                   .id(postulacionEntity.getId())
                                   .puesto(postulacionEntity.getPuesto())
                                   .empresa(postulacionEntity.getEmpresa())
+                                  .plataforma(postulacionEntity.getPlataforma())
                                   .enlace(postulacionEntity.getEnlace())
                                   .estado(postulacionEntity.getEstado())
                                   .fecha(postulacionEntity.getFecha()
