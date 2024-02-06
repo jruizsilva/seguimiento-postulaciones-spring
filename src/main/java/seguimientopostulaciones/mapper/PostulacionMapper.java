@@ -5,6 +5,9 @@ import seguimientopostulaciones.http.request.postulacion.CreatePostulacionReques
 import seguimientopostulaciones.http.request.postulacion.UpdatePostulacionRequest;
 import seguimientopostulaciones.http.response.postulacion.PostulacionResponse;
 
+import java.util.List;
+import java.util.Map;
+
 public interface PostulacionMapper {
     PostulacionEntity createProductRequestToEntity(CreatePostulacionRequest createPostulacionRequest);
 
@@ -12,4 +15,6 @@ public interface PostulacionMapper {
                                                    PostulacionEntity postulacionEntity);
 
     PostulacionResponse entityToResponse(PostulacionEntity postulacionEntity);
+
+    List<Map<String, Object>> entityListToMapList(List<PostulacionEntity> postulacionEntityList);
 }

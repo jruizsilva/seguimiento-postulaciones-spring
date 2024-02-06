@@ -12,6 +12,7 @@ import seguimientopostulaciones.repository.PostulacionRepository;
 import seguimientopostulaciones.service.PostulacionService;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @Service
@@ -62,5 +63,11 @@ public class PostulacionServiceImpl implements PostulacionService {
                                     .stream()
                                     .map(postulacionMapper::entityToResponse)
                                     .toList();
+    }
+
+    @Override
+    public List<Map<String, Object>> findAllMapPostulaciones() {
+        List<PostulacionEntity> postulacionEntityList = postulacionRepository.findAll();
+        return postulacionMapper.entityListToMapList(postulacionEntityList);
     }
 }

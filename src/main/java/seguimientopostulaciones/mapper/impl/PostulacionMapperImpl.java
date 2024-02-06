@@ -8,6 +8,10 @@ import seguimientopostulaciones.http.request.postulacion.UpdatePostulacionReques
 import seguimientopostulaciones.http.response.postulacion.PostulacionResponse;
 import seguimientopostulaciones.mapper.PostulacionMapper;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 @Component
 public class PostulacionMapperImpl implements PostulacionMapper {
     @Override
@@ -60,5 +64,33 @@ public class PostulacionMapperImpl implements PostulacionMapper {
                                   .fecha(postulacionEntity.getFecha()
                                                           .toString())
                                   .build();
+    }
+
+    @Override
+    public List<Map<String, Object>> entityListToMapList(List<PostulacionEntity> postulacionEntityList) {
+        return postulacionEntityList.stream()
+                                    .map(PostulacionMapperImpl::entityToMap)
+                                    .toList();
+    }
+
+    private static Map<String, Object> entityToMap(PostulacionEntity postulacion) {
+        Map<String, Object> map = new HashMap<>();
+        map.put("id",
+                postulacion.getId());
+        map.put("puesto",
+                postulacion.getPuesto());
+        map.put("empresa",
+                postulacion.getEmpresa());
+        map.put("plataforma",
+                postulacion.getPlataforma());
+        map.put("enlace",
+                postulacion.getEnlace());
+        map.put("fecha",
+                postulacion.getFecha());
+        map.put("estado",
+                postulacion.getEstado()
+                           .name());
+        // Puedes agregar más campos según sea necesario
+        return map;
     }
 }

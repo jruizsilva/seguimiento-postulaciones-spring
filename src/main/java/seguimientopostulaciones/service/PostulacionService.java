@@ -5,6 +5,7 @@ import seguimientopostulaciones.http.request.postulacion.UpdatePostulacionReques
 import seguimientopostulaciones.http.response.postulacion.PostulacionResponse;
 
 import java.util.List;
+import java.util.Map;
 
 public interface PostulacionService {
     PostulacionResponse createPostulacion(CreatePostulacionRequest createPostulacionRequest);
@@ -12,4 +13,5 @@ public interface PostulacionService {
     PostulacionResponse findPostulacionById(Long postulacionId);
     void deletePostulacionById(Long postulacionId);
     List<PostulacionResponse> findAllPostulaciones();
+    List<Map<String, Object>> findAllMapPostulaciones();
 }
