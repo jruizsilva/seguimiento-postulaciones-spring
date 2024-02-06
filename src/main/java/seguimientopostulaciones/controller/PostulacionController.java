@@ -15,6 +15,7 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/postulaciones")
+@CrossOrigin
 public class PostulacionController {
     private final PostulacionService postulacionService;
 

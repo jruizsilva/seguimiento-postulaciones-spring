@@ -16,5 +16,6 @@ public class CreatePostulacionRequest {
     private String empresa;
     @NotNull
     private String plataforma;
+
     private String enlace;
 }
