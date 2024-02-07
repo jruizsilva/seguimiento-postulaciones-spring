@@ -87,8 +87,18 @@ public class PdfServiceImpl implements PdfService {
         PdfPCell cell = new PdfPCell();
 
         Chunk chunk = new Chunk(text);
+        chunk.setFont(anchorStyles());
         chunk.setAnchor(url);
         cell.addElement(chunk);
         return cell;
+    }
+
+    private static Font anchorStyles() {
+        // Crear una fuente con estilo de enlace
+        Font font = new Font(Font.FontFamily.HELVETICA,
+                             12,
+                             Font.UNDERLINE);
+        font.setColor(BaseColor.BLUE);
+        return font;
     }
 }
