@@ -8,6 +8,8 @@ import seguimientopostulaciones.http.request.postulacion.UpdatePostulacionReques
 import seguimientopostulaciones.http.response.postulacion.PostulacionResponse;
 import seguimientopostulaciones.mapper.PostulacionMapper;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -61,8 +63,7 @@ public class PostulacionMapperImpl implements PostulacionMapper {
                                   .plataforma(postulacionEntity.getPlataforma())
                                   .enlace(postulacionEntity.getEnlace())
                                   .estado(postulacionEntity.getEstado())
-                                  .fecha(postulacionEntity.getFecha()
-                                                          .toString())
+                                  .fecha(formatDate(postulacionEntity.getFecha()))
                                   .build();
     }
 
@@ -92,5 +93,10 @@ public class PostulacionMapperImpl implements PostulacionMapper {
                            .name());
         // Puedes agregar más campos según sea necesario
         return map;
+    }
+
+    private String formatDate(Date date) {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MMM d, yyyy");
+        return simpleDateFormat.format(date);
     }
 }

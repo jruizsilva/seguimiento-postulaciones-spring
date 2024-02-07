@@ -1,6 +1,7 @@
 package seguimientopostulaciones.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Size;
 import lombok.*;
 import seguimientopostulaciones.entity.util.Estado;
 
@@ -24,6 +25,9 @@ public class PostulacionEntity {
     private String puesto;
     private String empresa;
     private String plataforma;
+
+    @Column(length = 3000)
+    @Size(max = 3000)
     private String enlace;
     @Temporal(TemporalType.TIMESTAMP)
     private Date fecha;
