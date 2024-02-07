@@ -74,10 +74,21 @@ public class PdfServiceImpl implements PdfService {
             tabla.addCell(postulacion.getPuesto());
             tabla.addCell(postulacion.getEmpresa());
             tabla.addCell(postulacion.getPlataforma());
-            tabla.addCell(postulacion.getEnlace());
+            tabla.addCell(createAnchorCell(postulacion.getEnlace(),
+                                           "Abrir enlace"));
             tabla.addCell(postulacion.getFecha());
             tabla.addCell(postulacion.getEstado()
                                      .toString());
         }
+    }
+
+    private static PdfPCell createAnchorCell(String url,
+                                             String text) {
+        PdfPCell cell = new PdfPCell();
+
+        Chunk chunk = new Chunk(text);
+        chunk.setAnchor(url);
+        cell.addElement(chunk);
+        return cell;
     }
 }
