@@ -85,7 +85,7 @@ public class PdfServiceImpl implements PdfService {
     private static PdfPCell createAnchorCell(String url,
                                              String text) {
         PdfPCell cell = new PdfPCell();
-
+        
         Chunk chunk = new Chunk(text);
         chunk.setFont(anchorStyles());
         chunk.setAnchor(url);
