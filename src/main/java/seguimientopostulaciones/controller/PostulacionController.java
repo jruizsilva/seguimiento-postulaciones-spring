@@ -26,39 +26,39 @@ public class PostulacionController {
     private final PdfService pdfService;
 
     @PostMapping
-    public ResponseEntity<PostulacionResponse> createProduct(@Valid @RequestBody
-                                                             CreatePostulacionRequest createPostulacionRequest) {
+    public ResponseEntity<PostulacionResponse> create(@Valid @RequestBody
+                                                      CreatePostulacionRequest createPostulacionRequest) {
         return ResponseEntity.status(HttpStatus.CREATED)
-                             .body(postulacionService.createPostulacion(createPostulacionRequest));
+                             .body(postulacionService.create(createPostulacionRequest));
     }
 
     @PatchMapping
-    public ResponseEntity<PostulacionResponse> updateProduct(@Valid @RequestBody
-                                                             UpdatePostulacionRequest updatePostulacionRequest) {
-        return ResponseEntity.ok(postulacionService.updatePostulacion(updatePostulacionRequest));
+    public ResponseEntity<PostulacionResponse> update(@Valid @RequestBody
+                                                      UpdatePostulacionRequest updatePostulacionRequest) {
+        return ResponseEntity.ok(postulacionService.update(updatePostulacionRequest));
     }
 
     @GetMapping("/{postulacionId}")
-    public ResponseEntity<PostulacionResponse> findProductById(@PathVariable Long postulacionId) {
-        return ResponseEntity.ok(postulacionService.findPostulacionById(postulacionId));
+    public ResponseEntity<PostulacionResponse> findById(@PathVariable Long postulacionId) {
+        return ResponseEntity.ok(postulacionService.findById(postulacionId));
     }
 
     @GetMapping
-    public ResponseEntity<List<PostulacionResponse>> findAllPostulaciones() {
-        return ResponseEntity.ok(postulacionService.findAllPostulaciones());
+    public ResponseEntity<List<PostulacionResponse>> findAll() {
+        return ResponseEntity.ok(postulacionService.findAll());
     }
 
     @DeleteMapping("/{postulacionId}")
-    public ResponseEntity<Void> deletePostulacion(@PathVariable Long postulacionId) {
-        postulacionService.deletePostulacionById(postulacionId);
+    public ResponseEntity<Void> delete(@PathVariable Long postulacionId) {
+        postulacionService.deleteById(postulacionId);
         return ResponseEntity.noContent()
                              .build();
     }
 
     @GetMapping("/export/pdf")
-    public ResponseEntity<byte[]> generateTablePdf() throws DocumentException {
+    public ResponseEntity<byte[]> generatePdf() throws DocumentException {
         // Crear un documento PDF
-        ByteArrayOutputStream pdfStream = pdfService.generarPdf(postulacionService.findAllPostulaciones());
+        ByteArrayOutputStream pdfStream = pdfService.generarPdf(postulacionService.findAll());
 
         // Configurar la respuesta HTTP
         HttpHeaders headers = new HttpHeaders();

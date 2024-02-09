@@ -15,7 +15,7 @@ import java.util.List;
 @Component
 public class PostulacionEspontaneaMapperImpl implements PostulacionEspontaneaMapper {
     @Override
-    public PostulacionEspontaneaEntity createPostulacionEspontaneaRequestToEntity(CreatePostulacionEspontaneaRequest createPostulacionEspontaneaRequest) {
+    public PostulacionEspontaneaEntity createRequestToEntity(CreatePostulacionEspontaneaRequest createPostulacionEspontaneaRequest) {
         return PostulacionEspontaneaEntity.builder()
                                           .nombre(createPostulacionEspontaneaRequest.getNombre())
                                           .empresa(createPostulacionEspontaneaRequest.getEmpresa())
@@ -25,8 +25,8 @@ public class PostulacionEspontaneaMapperImpl implements PostulacionEspontaneaMap
     }
 
     @Override
-    public PostulacionEspontaneaEntity updatePostulacionEspontaneaRequestToEntity(UpdatePostulacionEspontaneaRequest updatePostulacionEspontaneaRequest,
-                                                                                  PostulacionEspontaneaEntity postulacionEspontaneaEntity) {
+    public PostulacionEspontaneaEntity updateRequestToEntity(UpdatePostulacionEspontaneaRequest updatePostulacionEspontaneaRequest,
+                                                             PostulacionEspontaneaEntity postulacionEspontaneaEntity) {
         String nombre = updatePostulacionEspontaneaRequest.getNombre();
         String empresa = updatePostulacionEspontaneaRequest.getEmpresa();
         Estado estado = updatePostulacionEspontaneaRequest.getEstado();

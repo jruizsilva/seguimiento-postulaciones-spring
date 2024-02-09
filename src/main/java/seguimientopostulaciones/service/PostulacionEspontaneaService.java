@@ -7,9 +7,9 @@ import seguimientopostulaciones.http.response.postulacionespontanea.PostulacionE
 import java.util.List;
 
 public interface PostulacionEspontaneaService {
-    PostulacionEspontaneaResponse createPostulacionEspontanea(CreatePostulacionEspontaneaRequest createPostulacionEspontaneaRequest);
-    PostulacionEspontaneaResponse updatePostulacionEspontanea(UpdatePostulacionEspontaneaRequest updatePostulacionEspontaneaRequest);
-    PostulacionEspontaneaResponse findPostulacionEspontaneaById(Long postulacionId);
-    void deletePostulacionEspontaneaById(Long postulacionId);
-    List<PostulacionEspontaneaResponse> findAllPostulacionesEspontaneas();
+    PostulacionEspontaneaResponse create(CreatePostulacionEspontaneaRequest createPostulacionEspontaneaRequest);
+    PostulacionEspontaneaResponse update(UpdatePostulacionEspontaneaRequest updatePostulacionEspontaneaRequest);
+    PostulacionEspontaneaResponse findById(Long id);
+    void deleteById(Long id);
+    List<PostulacionEspontaneaResponse> findAll();
 }

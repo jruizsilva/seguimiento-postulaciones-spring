@@ -8,10 +8,10 @@ import java.util.List;
 import java.util.Map;
 
 public interface PostulacionService {
-    PostulacionResponse createPostulacion(CreatePostulacionRequest createPostulacionRequest);
-    PostulacionResponse updatePostulacion(UpdatePostulacionRequest updatePostulacionRequest);
-    PostulacionResponse findPostulacionById(Long postulacionId);
-    void deletePostulacionById(Long postulacionId);
-    List<PostulacionResponse> findAllPostulaciones();
+    PostulacionResponse create(CreatePostulacionRequest createPostulacionRequest);
+    PostulacionResponse update(UpdatePostulacionRequest updatePostulacionRequest);
+    PostulacionResponse findById(Long id);
+    void deleteById(Long id);
+    List<PostulacionResponse> findAll();
     List<Map<String, Object>> findAllMapPostulaciones();
 }

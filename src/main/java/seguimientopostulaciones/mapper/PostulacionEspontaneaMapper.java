@@ -8,10 +8,10 @@ import seguimientopostulaciones.http.response.postulacionespontanea.PostulacionE
 import java.util.List;
 
 public interface PostulacionEspontaneaMapper {
-    PostulacionEspontaneaEntity createPostulacionEspontaneaRequestToEntity(CreatePostulacionEspontaneaRequest createPostulacionEspontaneaRequest);
+    PostulacionEspontaneaEntity createRequestToEntity(CreatePostulacionEspontaneaRequest createPostulacionEspontaneaRequest);
 
-    PostulacionEspontaneaEntity updatePostulacionEspontaneaRequestToEntity(UpdatePostulacionEspontaneaRequest updatePostulacionEspontaneaRequest,
-                                                                           PostulacionEspontaneaEntity postulacionEspontaneaEntity);
+    PostulacionEspontaneaEntity updateRequestToEntity(UpdatePostulacionEspontaneaRequest updatePostulacionEspontaneaRequest,
+                                                      PostulacionEspontaneaEntity postulacionEspontaneaEntity);
 
     PostulacionEspontaneaResponse entityToResponse(PostulacionEspontaneaEntity postulacionEspontaneaEntity);
 
