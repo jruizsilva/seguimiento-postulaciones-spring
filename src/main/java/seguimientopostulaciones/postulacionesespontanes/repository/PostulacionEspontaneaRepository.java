@@ -1,0 +1,7 @@
+package seguimientopostulaciones.postulacionesespontanes.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import seguimientopostulaciones.postulacionesespontanes.domain.PostulacionEspontaneaEntity;
+
+public interface PostulacionEspontaneaRepository extends JpaRepository<PostulacionEspontaneaEntity, Long> {
+}
