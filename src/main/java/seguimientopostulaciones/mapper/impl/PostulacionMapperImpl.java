@@ -17,7 +17,7 @@ import java.util.Map;
 @Component
 public class PostulacionMapperImpl implements PostulacionMapper {
     @Override
-    public PostulacionEntity createProductRequestToEntity(CreatePostulacionRequest createPostulacionRequest) {
+    public PostulacionEntity createPostulacionRequestToEntity(CreatePostulacionRequest createPostulacionRequest) {
         return PostulacionEntity.builder()
                                 .puesto(createPostulacionRequest.getPuesto())
                                 .empresa(createPostulacionRequest.getEmpresa())
@@ -28,8 +28,8 @@ public class PostulacionMapperImpl implements PostulacionMapper {
     }
 
     @Override
-    public PostulacionEntity updateProductRequestToEntity(UpdatePostulacionRequest updatePostulacionRequest,
-                                                          PostulacionEntity postulacionEntity) {
+    public PostulacionEntity updatePostulacionRequestToEntity(UpdatePostulacionRequest updatePostulacionRequest,
+                                                              PostulacionEntity postulacionEntity) {
         String puesto = updatePostulacionRequest.getPuesto();
         String empresa = updatePostulacionRequest.getEmpresa();
         String enlace = updatePostulacionRequest.getEnlace();

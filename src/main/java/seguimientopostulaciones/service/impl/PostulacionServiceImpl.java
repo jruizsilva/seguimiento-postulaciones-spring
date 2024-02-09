@@ -23,7 +23,7 @@ public class PostulacionServiceImpl implements PostulacionService {
 
     @Override
     public PostulacionResponse createPostulacion(CreatePostulacionRequest createPostulacionRequest) {
-        PostulacionEntity postulacionEntityToSave = postulacionMapper.createProductRequestToEntity(createPostulacionRequest);
+        PostulacionEntity postulacionEntityToSave = postulacionMapper.createPostulacionRequestToEntity(createPostulacionRequest);
         PostulacionEntity postulacionEntitySaved = postulacionRepository.save(postulacionEntityToSave);
         return postulacionMapper.entityToResponse(postulacionEntitySaved);
     }
@@ -36,8 +36,8 @@ public class PostulacionServiceImpl implements PostulacionService {
             throw new CustomEntityNotFoundException("postulacion to edit not found");
         }
         PostulacionEntity postulacionEntity = postulacionEntityOptional.get();
-        PostulacionEntity postulacionEntityToUpdate = postulacionMapper.updateProductRequestToEntity(updatePostulacionRequest,
-                                                                                                     postulacionEntity);
+        PostulacionEntity postulacionEntityToUpdate = postulacionMapper.updatePostulacionRequestToEntity(updatePostulacionRequest,
+                                                                                                         postulacionEntity);
         PostulacionEntity postulacionEntityUpdated = postulacionRepository.save(postulacionEntityToUpdate);
         return postulacionMapper.entityToResponse(postulacionEntityUpdated);
     }

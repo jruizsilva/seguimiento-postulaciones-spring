@@ -9,10 +9,10 @@ import java.util.List;
 import java.util.Map;
 
 public interface PostulacionMapper {
-    PostulacionEntity createProductRequestToEntity(CreatePostulacionRequest createPostulacionRequest);
+    PostulacionEntity createPostulacionRequestToEntity(CreatePostulacionRequest createPostulacionRequest);
 
-    PostulacionEntity updateProductRequestToEntity(UpdatePostulacionRequest updatePostulacionRequest,
-                                                   PostulacionEntity postulacionEntity);
+    PostulacionEntity updatePostulacionRequestToEntity(UpdatePostulacionRequest updatePostulacionRequest,
+                                                       PostulacionEntity postulacionEntity);
 
     PostulacionResponse entityToResponse(PostulacionEntity postulacionEntity);
 
